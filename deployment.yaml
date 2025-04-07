@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-docker-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-docker
+  template:
+    metadata:
+      labels:
+        app: hello-world-docker
+    spec:
+      containers:
+      - name: hello-world-docker
+        image: YOUR_USERNAME/hello-world-docker:latest
+        ports:
+          - containerPort: 80
