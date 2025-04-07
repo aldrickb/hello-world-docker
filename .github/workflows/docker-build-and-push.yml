@@ -25,7 +25,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: aldrickb/hello-world-docker:$${{ github.sha }}
+        tags: aldrickb/hello-world-docker:latest
 
 #    - name: Deploy to Kubernetes
 #      run: |
