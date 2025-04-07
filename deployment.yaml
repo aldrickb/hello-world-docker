@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: hello-world-docker
-        image: YOUR_USERNAME/hello-world-docker:latest
+        image: aldrickb/hello-world-docker:latest
         ports:
           - containerPort: 80
