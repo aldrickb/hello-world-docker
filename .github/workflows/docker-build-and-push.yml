@@ -27,7 +27,7 @@ jobs:
         push: true
         tags: yourusername/yourimagename:$${{ github.sha }}
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+#    - name: Deploy to Kubernetes
+#      run: |
+#        kubectl apply -f deployment.yaml
+#        kubectl apply -f service.yaml
