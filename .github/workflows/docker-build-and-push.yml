@@ -34,4 +34,4 @@ jobs:
 
     - name: Deploy to DigitalOcean App Platform
       run: |
-        doctl apps create-deployment ${{ secrets.DIGITALOCEAN_APP_ID }} --format ID,Status
+        doctl apps create-deployment ${{ secrets.DIGITALOCEAN_APP_ID }} --force-rebuild
