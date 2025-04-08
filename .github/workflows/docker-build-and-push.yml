@@ -27,7 +27,16 @@ jobs:
         push: true
         tags: aldrickb/hello-world-docker:latest
 
-#    - name: Deploy to Kubernetes
-#      run: |
-#        kubectl apply -f deployment.yaml
-#        kubectl apply -f service.yaml
+    - name: Install DigitalOcean CLI
+      run: |
+        curl -L https://github.com/digitalocean/doctl/releases/download/v1.78.0/doctl-linux-amd64.tar.gz | tar zxvf -
+        chmod +x doctl
+        sudo mv doctl /usr/local/bin/doctl
+
+    - name: Login to DigitalOcean
+      run: |
+        doctl auth login --token ${{ secrets.DIGITALOCEAN_API_TOKEN }}
+
+    - name: Deploy to DigitalOcean App Platform
+      run: |
+        doctl apps create-deployment ${{ secrets.DIGITALOCEAN_APP_ID }} --format ID,Status
